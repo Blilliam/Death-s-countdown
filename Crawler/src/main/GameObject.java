@@ -5,9 +5,10 @@ import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 
+import TurnBased.TurnBasedCard;
+import TurnBased.TurnBasedEnemy;
+import TurnBased.TurnBasedPlayer;
 import enums.GameState;
-import fighting.Card;
-import fighting.Enemy;
 
 public class GameObject {
 	MouseInput mouseHandler;
@@ -24,17 +25,17 @@ public class GameObject {
 	int controlButtonHeight;
 	GameButton controlButton;
 	
-	Enemy testEnemy;
+	TurnBasedEnemy testEnemy;
 
 	public static GameState state;
 	
-	Player player;
+	TurnBasedPlayer player;
 
 	public GameObject(MouseInput mouseHandler) {
 		this.mouseHandler = mouseHandler;
 		state = GameState.START;
 		
-		player = new Player(this);
+		player = new TurnBasedPlayer(this);
 
 		startButtonWidth = 300;
 		startButtonHeight = 100;
@@ -51,7 +52,7 @@ public class GameObject {
 				AppPanel.HEIGHT / 2 + startButtonHeight / 2 + 50, startButtonWidth, startButtonHeight, "EXIT BACK",
 				this::toStart);
 		
-		testEnemy = new Enemy();
+		testEnemy = new TurnBasedEnemy();
 
 	}
 
@@ -81,7 +82,7 @@ public class GameObject {
 			controlButton.draw(g2);
 		} else if (state == GameState.PLAY) {
 			if (player.hand != null) {
-				for (Card c : player.hand) {
+				for (TurnBasedCard c : player.hand) {
 					c.draw(g2);
 				}
 			}
