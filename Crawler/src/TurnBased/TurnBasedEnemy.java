@@ -7,17 +7,18 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import main.AppPanel;
+import main.Assets;
 
 public class TurnBasedEnemy {
 	public int hp;
 	public int atk;
-	
+
 	public int size = 200;
-	
+
 	public boolean isDead;
-	
-	public int x = AppPanel.WIDTH/ 2 - size/2;
-	public int y = AppPanel.HEIGHT/2 - 100 - size;
+
+	public int x = AppPanel.WIDTH / 2 - size / 2;
+	public int y = AppPanel.HEIGHT / 2 - 100 - size;
 
 	public String name;
 
@@ -27,43 +28,18 @@ public class TurnBasedEnemy {
 		hp = 10;
 		atk = 1;
 		name = "tester";
-		
+
+		sprite = Assets.zombie;
+
 		isDead = false;
-
-		if (sprite == null) {
-			try {
-				sprite = ImageIO.read(getClass().getResource("/EnemyImage/Sprite-Skeleton.png"));
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
 	}
 
-	public TurnBasedEnemy(String spriteName) {
-		this();
-
-		if (sprite == null) {
-			try {
-				sprite = ImageIO.read(getClass().getResource("/images/" + spriteName + ".png"));
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-	
 	public void draw(Graphics2D g2) {
 		if (sprite != null) {
-	        g2.drawImage(
-	            sprite,
-	            x,
-	            y,
-	            size,
-	            size,
-	            null
-	        );
-	    }
+			g2.drawImage(sprite, x, y, size, size, null);
+		}
 	}
-	
+
 	public void update() {
 		if (hp <= 0) {
 			isDead = true;

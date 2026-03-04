@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 
+import Open.OpenMap;
 import Open.OpenPlayer;
 import TurnBased.TurnBasedBattle;
 import TurnBased.TurnBasedCard;
@@ -30,10 +31,16 @@ public class GameObject {
 	TurnBasedBattle testBattle;
 	
 	OpenPlayer player;
+	
+	OpenMap map;
 
 	public GameObject(MouseInput mouseHandler) {
+		Assets.load();
+		
 		this.mouseHandler = mouseHandler;
 		state = GameState.START;
+		
+		map = new OpenMap();
 		
 		player = new OpenPlayer(this);
 
@@ -59,7 +66,9 @@ public class GameObject {
 			startButton.update();
 			controlButton.update();
 
-		} else if (state == GameState.PLAY) {
+		} else if (state == GameState.OPEN) {
+			
+		} else if (state == GameState.TURN_BASED) {
 			player.update();
 			testBattle.update();
 		} else if (state == GameState.DEAD) {
@@ -79,7 +88,11 @@ public class GameObject {
 		if (state == GameState.START) {
 			startButton.draw(g2);
 			controlButton.draw(g2);
-		} else if (state == GameState.PLAY) {
+		} else if (state == GameState.OPEN) {
+			map.draw(g2);
+			
+			
+		} else if (state == GameState.TURN_BASED) {
 			if (player.hand != null) {
 				for (TurnBasedCard c : player.hand) {
 					c.draw(g2);
@@ -122,7 +135,11 @@ public class GameObject {
 	}
 
 	private void startGame() {
-		state = GameState.PLAY;
+		state = GameState.OPEN;
+	}
+	
+	private void startBattle() {
+		state = GameState.TURN_BASED;
 	}
 
 	private void showControls() {

@@ -2,7 +2,7 @@ package enums;
 
 public enum GameState {
 	START,
-	PLAY,
+	OPEN,
 	DEAD,
 	UPGRADING,
 	CONTROLS,

@@ -32,7 +32,7 @@ public class TurnBasedCard {
 	public int width = 180;
 	public int height = 270;
 
-	public int cost;
+	public int manaCost;
 	public int atk;
 	public int def;
 
@@ -100,7 +100,7 @@ public class TurnBasedCard {
 
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-		Color mainColor = getRarityColor(rarity);
+		Color mainColor = getRarityColor(type);
 
 		g2.setColor(new Color(0, 0, 0, 80));
 		g2.fillRoundRect(5, 5, width, height, 20, 20);
@@ -113,14 +113,13 @@ public class TurnBasedCard {
 		g2.setStroke(new BasicStroke(4));
 		g2.setColor(mainColor.brighter());
 		g2.drawRoundRect(0, 0, width, height, 20, 20);
-		
-		
-		//draw mana orb and text
+
+		// draw mana orb and text
 		drawText(g2);
-		
+
 		if (itemSprite != null)
 			g2.drawImage(itemSprite, 40, 40, 100, 100, null);
-		
+
 		g2.setTransform(old);
 
 	}
@@ -137,19 +136,34 @@ public class TurnBasedCard {
 		g2.setColor(Color.WHITE);
 		g2.setFont(new Font("Arial", Font.BOLD, 28));
 
-		g2.drawString(cost + "   " + name, 15, 35);
+		g2.drawString(manaCost + "   " + name, 15, 35);
 	}
 
-	private Color getRarityColor(Rarity rarity) {
-		switch (rarity) {
-		case BRONZE:
-			return new Color(205, 127, 50);
-		case SILVER:
-			return new Color(192, 192, 192);
-		case GOLD:
-			return new Color(255, 215, 0);
-		case DIAMOND:
+//	private Color getRarityColor(Rarity rarity) {
+//		switch (rarity) {
+//		case BRONZE:
+//			return new Color(205, 127, 50);
+//		case SILVER:
+//			return new Color(192, 192, 192);
+//		case GOLD:
+//			return new Color(255, 215, 0);
+//		case DIAMOND:
+//			return new Color(80, 220, 255);
+//		default:
+//			return Color.WHITE;
+//		}
+//	}
+
+	private Color getRarityColor(Type type) {
+		switch (type) {
+		case WEAPON:
+			return new Color(220, 50, 50);
+		case AURMOR:
 			return new Color(80, 220, 255);
+		case BUFF:
+			return new Color(230, 200, 60);
+		case MANA:
+			return new Color(114, 9, 183);
 		default:
 			return Color.WHITE;
 		}

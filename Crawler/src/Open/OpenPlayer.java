@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import TurnBased.TurnBasedCard;
 import enums.GameState;
 import enums.Rarity;
+import enums.Type;
 import main.AppPanel;
 import main.GameObject;
 import main.MouseInput;
@@ -28,12 +29,18 @@ public class OpenPlayer {
 		deck = new ArrayList<>();
 		hand = new ArrayList<>();
 		discardDeck = new ArrayList<>();
+		
+		Type[] types = new Type[4];
+		types[0] = Type.WEAPON;
+		types[1] = Type.BUFF;
+		types[2] = Type.AURMOR;
+		types[3] = Type.MANA;
 
 		// create cards
 		for (int i = 0; i < 5; i++) {
 			TurnBasedCard c = new TurnBasedCard(gameobj);
-			c.name = "Warrior";
-			c.rarity = rarities[i % rarities.length];
+			c.name = "Smth";
+			c.type = types[i%4];
 			deck.add(c);
 		}
 
@@ -96,7 +103,7 @@ public class OpenPlayer {
 	}
 	
 	public void update() {
-		if (gameobj.state == GameState.PLAY && MouseInput.mouseClicked) {
+		if (gameobj.state == GameState.TURN_BASED && MouseInput.mouseClicked) {
 			for (int i = 0; i < hand.size(); i++) {
 				if (hand.get(i).isClicked()) {
 					hand.remove(i);
