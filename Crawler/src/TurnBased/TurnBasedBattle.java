@@ -2,7 +2,7 @@ package TurnBased;
 
 import java.awt.Graphics2D;
 
-import Open.OpenPlayer;
+import Open.Entities.OpenPlayer;
 
 public class TurnBasedBattle {
 	public TurnBasedWave[] waves;

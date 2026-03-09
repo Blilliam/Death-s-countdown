@@ -31,26 +31,26 @@ public class Assets {
     public static void load(){
         try{
             // Weapons
-            knife = ImageIO.read(Assets.class.getResource("/ItemImage/Sprite-Knife.png"));
-            whip = ImageIO.read(Assets.class.getResource("/ItemImage/Sprite-Whip.png"));
-            axe = ImageIO.read(Assets.class.getResource("/ItemImage/Sprite-Axe.png"));
-            cross = ImageIO.read(Assets.class.getResource("/ItemImage/Sprite-Cross.png"));
-            kingBible = ImageIO.read(Assets.class.getResource("/ItemImage/Sprite-King_Bible.png"));
-            magicWand = ImageIO.read(Assets.class.getResource("/ItemImage/Sprite-Magic_Wand.png"));
-            fireWand = ImageIO.read(Assets.class.getResource("/ItemImage/Sprite-Fire_Wand.png"));
+            knife = ImageIO.read(Assets.class.getResource("/Images/Items/Sprite-Knife.png"));
+            whip = ImageIO.read(Assets.class.getResource("/Images/Items/Sprite-Whip.png"));
+            axe = ImageIO.read(Assets.class.getResource("/Images/Items/Sprite-Axe.png"));
+            cross = ImageIO.read(Assets.class.getResource("/Images/Items/Sprite-Cross.png"));
+            kingBible = ImageIO.read(Assets.class.getResource("/Images/Items/Sprite-King_Bible.png"));
+            magicWand = ImageIO.read(Assets.class.getResource("/Images/Items/Sprite-Magic_Wand.png"));
+            fireWand = ImageIO.read(Assets.class.getResource("/Images/Items/Sprite-Fire_Wand.png"));
             
-            manaSphere = ImageIO.read(Assets.class.getResource("/OtherImage/edited mana sphere.png"));
+            manaSphere = ImageIO.read(Assets.class.getResource("/Images/Other/edited mana sphere.png"));
             
-            playerSheet = ImageIO.read(Assets.class.getResource("/PlayerImage/antonio_spritesheet.png"));
+            playerSheet = ImageIO.read(Assets.class.getResource("/Images/Player/antonio_spritesheet.png"));
 
             // Enemies
-            zombie = ImageIO.read(Assets.class.getResource("/EnemyImage/Sprite-Zombie.png"));
-            mummy = ImageIO.read(Assets.class.getResource("/EnemyImage/Sprite-Mummy.png"));
-            skeleton = ImageIO.read(Assets.class.getResource("/EnemyImage/Sprite-Skeleton.png"));
-            ghost = ImageIO.read(Assets.class.getResource("/EnemyImage/Sprite-Ghost.png"));
-            mantichana = ImageIO.read(Assets.class.getResource("/EnemyImage/Sprite-Mantichana.png"));
-            werewolf = ImageIO.read(Assets.class.getResource("/EnemyImage/Sprite-Werewolf.png"));
-            mudman = ImageIO.read(Assets.class.getResource("/EnemyImage/Sprite-Mudman.png"));
+            zombie = ImageIO.read(Assets.class.getResource("/Images/Enemy/Sprite-Zombie.png"));
+            mummy = ImageIO.read(Assets.class.getResource("/Images/Enemy/Sprite-Mummy.png"));
+            skeleton = ImageIO.read(Assets.class.getResource("/Images/Enemy/Sprite-Skeleton.png"));
+            ghost = ImageIO.read(Assets.class.getResource("/Images/Enemy/Sprite-Ghost.png"));
+            mantichana = ImageIO.read(Assets.class.getResource("/Images/Enemy/Sprite-Mantichana.png"));
+            werewolf = ImageIO.read(Assets.class.getResource("/Images/Enemy/Sprite-Werewolf.png"));
+            mudman = ImageIO.read(Assets.class.getResource("/Images/Enemy/Sprite-Mudman.png"));
 
         } catch(Exception e){
             e.printStackTrace();

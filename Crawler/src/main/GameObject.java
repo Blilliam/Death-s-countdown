@@ -6,11 +6,12 @@ import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 
-import Open.OpenEnemy;
 import Open.OpenMap;
-import Open.OpenPlayer;
+import Open.Entities.OpenPlayer;
+import Open.Entities.Enemies.OpenEnemy;
+import Open.Entities.Enemies.OpenWaves;
 import TurnBased.TurnBasedBattle;
-import enums.GameState;
+import main.enums.GameState;
 
 public class GameObject {
 	MouseInput mouseHandler;
@@ -37,14 +38,14 @@ public class GameObject {
 	
 	public ArrayList<OpenEnemy> enemies;
 	
+	public OpenWaves waves;
+	
 	public OpenMap map;
 
 	public GameObject(KeyboardInput keyH, MouseInput mouseHandler) {
 		Assets.load();
 		
 		enemies = new ArrayList<OpenEnemy>();
-		
-		enemies.add(new OpenEnemy(this, 100, 100));
 		
 		this.keyH = keyH;
 		
@@ -54,6 +55,8 @@ public class GameObject {
 		map = new OpenMap(this);
 		
 		player = new OpenPlayer(this);
+		
+		waves = new OpenWaves(this);
 
 		startButtonWidth = 300;
 		startButtonHeight = 100;
@@ -84,6 +87,7 @@ public class GameObject {
 			for (OpenEnemy e:enemies) {
 				e.update();
 			}
+			waves.update();
 			
 		} else if (state == GameState.TURN_BASED) {
 			

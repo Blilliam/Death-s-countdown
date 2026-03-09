@@ -12,11 +12,11 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import enums.Rarity;
-import enums.Type;
 import main.Assets;
 import main.GameObject;
 import main.MouseInput;
+import main.enums.Rarity;
+import main.enums.Type;
 
 public class TurnBasedCard {
 

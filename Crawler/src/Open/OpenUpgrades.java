@@ -1,6 +1,6 @@
 package Open;
 
-import enums.Rarity;
+import main.enums.Rarity;
 
 public class OpenUpgrades {
 	Rarity[] rarities;
