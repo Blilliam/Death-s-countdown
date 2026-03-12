@@ -1,15 +1,15 @@
 package Open.Upgrades;
 
-import main.enums.Rarity;
+import main.enums.WeaponRarity;
 
 public class Upgrades {
-	Rarity[] rarities;
+	WeaponRarity[] rarities;
 
 	public Upgrades() {
-		rarities = new Rarity[4];
-		rarities[0] = Rarity.BRONZE;
-		rarities[1] = Rarity.SILVER;
-		rarities[2] = Rarity.GOLD;
-		rarities[3] = Rarity.DIAMOND;
+		rarities = new WeaponRarity[4];
+		rarities[0] = WeaponRarity.BRONZE;
+		rarities[1] = WeaponRarity.SILVER;
+		rarities[2] = WeaponRarity.GOLD;
+		rarities[3] = WeaponRarity.DIAMOND;
 	}
 }
